@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "749443606700",
+    "project_id": "bank-management-system-b5150",
+    "storage_bucket": "bank-management-system-b5150.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:749443606700:android:242e9465536bb5a0df1709",
+        "android_client_info": {
+          "package_name": "com.example.bookmanagementsystem"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAXB7_BxGbw0sLFk6Ly5RsKhZgst9XHk34"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

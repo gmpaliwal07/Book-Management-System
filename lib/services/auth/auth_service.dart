@@ -1,5 +1,6 @@
 import 'package:bookmanagementsystem/services/auth/auth_provider.dart';
 import 'package:bookmanagementsystem/services/auth/auth_user.dart';
+import 'package:bookmanagementsystem/services/auth/firebase_auth_provider.dart';
 
 class AuthService implements AuthProvider {
   final AuthProvider provider;

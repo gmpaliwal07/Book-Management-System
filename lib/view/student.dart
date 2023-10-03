@@ -21,7 +21,8 @@ class _StudentPanelState extends State<StudentPanel> {
   }
 
   void viewProfile() {
-    print("view Profile");
+   Navigator.of(context).pushNamed('/profile');
+
   }
 
   @override
@@ -79,6 +80,7 @@ class _StudentPanelState extends State<StudentPanel> {
             ),
           ),
           const SizedBox(width: 30),
+
         ],
       ),
     );

@@ -1,4 +1,7 @@
+import 'package:bookmanagementsystem/services/auth/bloc/auth_bloc.dart';
+import 'package:bookmanagementsystem/services/auth/bloc/auth_event.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Book {
@@ -98,7 +101,7 @@ class _ViewProfileState extends State<ViewProfile> {
             color: const Color(0xfff5f5f5),
           ),
         ),
-        backgroundColor: const Color.fromARGB(174, 105, 29, 211),
+        backgroundColor: const Color(0xff4B6CD0),
       ),
       // backgroundColor: const Color(0xffe4f1ff),
       body: Center(
@@ -142,12 +145,36 @@ class _ViewProfileState extends State<ViewProfile> {
                   _buildLabel("Section: ${widget.userProfile.section}"),
                   _buildLabel("Enrollment: ${widget.userProfile.enrollment}"),
                   const SizedBox(height: 20.0),
+                  // ElevatedButton(
+                  //   onPressed: () {
+                  //     print("Redirecting to edit profile section");
+                  //   },
+                  //   child: const Text('Edit Profile'),
+                  // ),
                   ElevatedButton(
-                    onPressed: () {
-                      print("Redirecting to edit profile section");
-                    },
-                    child: const Text('Edit Profile'),
-                  ),
+                                style: ElevatedButton.styleFrom(
+                                  minimumSize: const Size(327, 50),
+                                  shape: const RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.all(
+                                          Radius.circular(10))),
+                                  shadowColor:
+                                      const Color.fromARGB(255, 179, 200, 247),
+                                  elevation: 30,
+                                  backgroundColor: const Color(0xff4B6CD0),
+                                ),
+                                onPressed: () async{   
+                                  BlocProvider.of<AuthBloc>(context).add(
+                                   AuthEventLogOut()
+                                  );
+                                      
+                                },
+                                child: Text('Log Out',
+                                    style: GoogleFonts.robotoMono(
+                                        fontSize: 20,
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w800)),
+                              ),
+                              
                 ],
               ),
             ),

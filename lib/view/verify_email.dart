@@ -1,4 +1,7 @@
+import 'package:bookmanagementsystem/services/auth/bloc/auth_bloc.dart';
+import 'package:bookmanagementsystem/services/auth/bloc/auth_event.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 
@@ -90,8 +93,8 @@ class _VerifyEmailState extends State<VerifyEmail> {
                               elevation: 30,
                               backgroundColor: const Color(0xff4B6CD0),
                             ),
-                            onPressed: () {
-                              Navigator.pushNamed(context, '/');
+                            onPressed: () async{
+                                context.read<AuthBloc>().add(const AuthEventLogOut());
                             },
                             child: Text('Back to Login',
                                 style: GoogleFonts.robotoMono(
