@@ -1,4 +1,9 @@
+import 'package:bookmanagementsystem/enums/menu_action.dart';
+import 'package:bookmanagementsystem/services/auth/bloc/auth_bloc.dart';
+import 'package:bookmanagementsystem/services/auth/bloc/auth_event.dart';
+import 'package:bookmanagementsystem/utilities/dialogs/logout_dialog.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class StudentPanel extends StatefulWidget {
   const StudentPanel({super.key});
@@ -28,8 +33,10 @@ class _StudentPanelState extends State<StudentPanel> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color.fromARGB(255, 217, 231, 238),
       appBar: AppBar(
-        backgroundColor: const Color.fromARGB(255, 61, 54, 54),
+    
+        backgroundColor:const Color(0xff4B6CD0),
         title: const Text(
           'Admin Panel',
           style: TextStyle(
@@ -48,10 +55,12 @@ class _StudentPanelState extends State<StudentPanel> {
                 style: TextStyle(
                   fontWeight: FontWeight.w500,
                   color: Color(0xfff5f5f5),
+                  fontSize: 20
                 ),
               ),
             ),
           ),
+           const SizedBox(width: 30), 
           InkWell(
             onTap: requestBook, // line 11
             child: const Padding(
@@ -61,6 +70,7 @@ class _StudentPanelState extends State<StudentPanel> {
                 style: TextStyle(
                   fontWeight: FontWeight.w500,
                   color: Color(0xfff5f5f5),
+                   fontSize: 20
                 ),
               ),
             ),
@@ -75,14 +85,48 @@ class _StudentPanelState extends State<StudentPanel> {
                 style: TextStyle(
                   fontWeight: FontWeight.w500,
                   color: Color(0xfff5f5f5),
+                   fontSize: 20
                 ),
               ),
             ),
           ),
           const SizedBox(width: 30),
 
-        ],
-      ),
+           PopupMenuButton<MenuAction>(
+              shadowColor: const Color.fromARGB(255, 149, 179, 244),
+              shape: const RoundedRectangleBorder(
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(8.0),
+                  bottomRight: Radius.circular(8.0),
+                  topLeft: Radius.circular(8.0),
+                  topRight: Radius.circular(8.0),
+                ),
+              ),
+              onSelected: (value) async {
+                switch (value) {
+                  case MenuAction.logout:
+                    final shouldLogout = await showLogOutDialog(context);
+                    if (shouldLogout)  {
+                      // ignore: use_build_context_synchronously
+                      context.read<AuthBloc>().add(const AuthEventLogOut());
+                    }
+                    break;
+                }
+              },
+              itemBuilder: (context) {
+                return const [
+                  PopupMenuItem(
+                    value: MenuAction.logout,
+                    child: Text("Logout"),
+                  )
+                ];
+              },
+            )
+             
+          ],
+          
+        ),
+
     );
   }
 }

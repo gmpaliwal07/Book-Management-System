@@ -163,9 +163,7 @@ class _ViewProfileState extends State<ViewProfile> {
                                   backgroundColor: const Color(0xff4B6CD0),
                                 ),
                                 onPressed: () async{   
-                                  BlocProvider.of<AuthBloc>(context).add(
-                                   AuthEventLogOut()
-                                  );
+                                  context.read<AuthBloc>().add(const AuthEventLogOut());
                                       
                                 },
                                 child: Text('Log Out',

@@ -15,14 +15,14 @@ Future<T?> showGenericDialog<T>(
         title: Text(
           title,
           style:
-              GoogleFonts.robotoSlab(fontSize: 22, fontWeight: FontWeight.w500),
+              GoogleFonts.robotoMono(fontSize: 22, fontWeight: FontWeight.w500),
         ),
-        content: Text(content, style: GoogleFonts.robotoSlab(fontSize: 17)),
+        content: Text(content, style: GoogleFonts.robotoMono(fontSize: 17)),
         actions: options.keys.map((optionTitle) {
           final value = options[optionTitle];
           return ElevatedButton(
             style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.deepPurpleAccent.shade200,
+              backgroundColor: const Color(0xff4B6CD0),
             ),
             onPressed: () {
               if (value != null) {
@@ -33,7 +33,7 @@ Future<T?> showGenericDialog<T>(
             },
             child: Text(
               optionTitle,
-              style: GoogleFonts.robotoSlab(fontSize: 15),
+              style: GoogleFonts.robotoMono(fontSize: 15),
             ),
           );
         }).toList(),

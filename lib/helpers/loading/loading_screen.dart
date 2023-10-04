@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:bookmanagementsystem/helpers/loading/loading_screen_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 
 class LoadingScreen {
   factory LoadingScreen() => _shared;
@@ -42,9 +43,9 @@ class LoadingScreen {
           child: Center(
             child: Container(
               constraints: BoxConstraints(
-                maxWidth: size.width * 0.8,
-                maxHeight: size.height * 0.8,
-                minWidth: size.width * 0.5,
+                maxWidth: size.width * 0.2,
+                maxHeight: size.height * 0.2,
+                minWidth: size.width * 0.2,
               ),
               decoration: BoxDecoration(
                   color: Colors.white,
@@ -56,10 +57,7 @@ class LoadingScreen {
                     mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const SizedBox(height: 10),
-                      CircularProgressIndicator(
-                        color: Colors.deepPurpleAccent.shade200,
-                      ),
+                     Lottie.asset('assets/animations/loading.json', height: 150, width: 150),
                       const SizedBox(height: 20),
                       StreamBuilder(
                         builder: (context, snapshot) {

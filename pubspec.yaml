@@ -70,10 +70,12 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-    # - assets\animations\login_view.json
-
-    # - assets\images\book.png
+  assets:
+    - assets/animations/forgot_password.json
+    - assets/animations/loading.json
+    - assets/animations/login_view.json
+    - assets/animations/verify_email.json
+    - assets/images/book.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
