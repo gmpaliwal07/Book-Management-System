@@ -5,7 +5,7 @@ class BookRequestView extends StatelessWidget {
   final String bookTitle;
   final String requestDate;
 
-  BookRequestView({
+   BookRequestView({
     required this.userName,
     required this.bookTitle,
     required this.requestDate,
@@ -24,17 +24,17 @@ class BookRequestView extends StatelessWidget {
           children: <Widget>[
             Text(
               'User Name: $userName',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 8),
+           const  SizedBox(height: 8),
             Text(
               'Book Title: $bookTitle',
-              style: TextStyle(fontSize: 18),
+              style: const TextStyle(fontSize: 18),
             ),
-            SizedBox(height: 8),
+            const SizedBox(height: 8),
             Text(
               'Request Date: $requestDate',
-              style: TextStyle(fontSize: 18),
+              style: const TextStyle(fontSize: 18),
             ),
             const SizedBox(height: 16),
             ElevatedButton(
@@ -53,7 +53,7 @@ class BookRequestView extends StatelessWidget {
               style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.all(Colors.red),
               ),
-              child: Text('Reject Request'),
+              child: const Text('Reject Request'),
             ),
           ],
         ),

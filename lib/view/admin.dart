@@ -1,67 +1,183 @@
+import 'package:bookmanagementsystem/constants/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+class Product {
+  String imageUrl, title, author;
+  int id , qty;
+  Product({
+   
+    required this.author,
+    required this.id,
+    required this.imageUrl,
+    required this.title,
+    required this.qty,
+  });
+}
+List<Product> product = [
+  Product(
+    id : 1,
+   title: "Can't Hurt Me",
+          author: "David Goggins",
+          imageUrl:
+              "https://m.media-amazon.com/images/I/71dA6xPmp3L._AC_UF1000,1000_QL80_.jpg",
+              qty: 0,
+  ),
+  Product(
+    qty : 10,
+    id : 2,
+      title: "Physics",
+          author: "H.C. Verma",
+          imageUrl:
+              "https://m.media-amazon.com/images/I/71dA6xPmp3L._AC_UF1000,1000_QL80_.jpg"),
+  Product(
+    qty : 7,
+    id: 3,
+     title: "Can't Hurt Me",
+          author: "David Goggins",
+          imageUrl:
+              "https://m.media-amazon.com/images/I/71dA6xPmp3L._AC_UF1000,1000_QL80_.jpg"
+  ),
+    Product(
+    qty : 10,
+    id : 4,
+      title: "Can't Hurt Me",
+          author: "David Goggins",
+          imageUrl:
+              "https://m.media-amazon.com/images/I/71dA6xPmp3L._AC_UF1000,1000_QL80_.jpg"),
+  Product(
+    qty : 7,
+    id: 5,
+     title: "Can't Hurt Me",
+          author: "David Goggins",
+          imageUrl:
+              "https://m.media-amazon.com/images/I/71dA6xPmp3L._AC_UF1000,1000_QL80_.jpg"
+  ),  Product(
+    qty : 10,
+    id : 6,
+      title: "Can't Hurt Me",
+          author: "David Goggins",
+          imageUrl:
+              "https://m.media-amazon.com/images/I/71dA6xPmp3L._AC_UF1000,1000_QL80_.jpg"),
+  Product(
+    qty : 7,
+    id: 7,
+     title: "Can't Hurt Me",
+          author: "David Goggins",
+          imageUrl:
+              "https://m.media-amazon.com/images/I/71dA6xPmp3L._AC_UF1000,1000_QL80_.jpg"
+  ),
 
-class AdminPanel extends StatefulWidget {
-  const AdminPanel({super.key});
+ 
+];
+
+class StudentPanelBody extends StatefulWidget {
+  const StudentPanelBody({super.key});
 
   @override
-  State<AdminPanel> createState() => _AdminPanelState();
+  State<StudentPanelBody> createState() => StudentPanelBodyState();
 }
 
-class _AdminPanelState extends State<AdminPanel> {
-  void handleBookIssueRequestTap() {
-    // Handle Book Issue Request tap functionality here
-    print('Book Issue Request tapped');
-    // Add your custom logic for Book Issue Request here
+class StudentPanelBodyState extends State<StudentPanelBody> {
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding, vertical: kDefaultPadding),
+      child: GridView.builder(
+        gridDelegate: const   SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisSpacing: kDefaultPadding,
+          mainAxisSpacing: kDefaultPadding,        
+          childAspectRatio: 0.75, crossAxisCount: 4,
+                    
+        ),
+        itemCount: product.length, // Provide itemCount
+        itemBuilder: (context, index) => ItemCard(product: product[index]),
+      ),
+    );
   }
+}
+class ItemCard extends StatelessWidget {
+  const ItemCard({
+    Key? key,
+    required this.product,
+  }) : super(key: key);
 
-  void handleManageBooksTap() {
-    // Handle Manage Books tap functionality here
-    print('Manage Books tapped');
-    // Add your custom logic for Manage Books here
-  }
+  final Product product;
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: const Color.fromARGB(255, 61, 54, 54),
-        title: const Text(
-          'Admin Panel',
-          style: TextStyle(
-            fontSize: 25,
-            fontWeight: FontWeight.w500,
-            color: Color(0xfff5f5f5),
-          ),
-        ),
-        actions: [
-          InkWell(
-            onTap: handleBookIssueRequestTap, // Assign the onTap callback
-            child: const Padding(
-              padding: EdgeInsets.all(14.0),
-              child: Text(
-                "Book Issue Request",
-                style: TextStyle(
-                  fontWeight: FontWeight.w500,
-                  color: Color(0xfff5f5f5),
-                ),
+    return Padding(
+      padding: const EdgeInsets.all(kDefaultPadding),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Expanded(
+            child: Container(
+              padding: const EdgeInsets.all(kDefaultPadding),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(16),
+              ),
+              child: Image.network(
+                product.imageUrl,
+                fit: BoxFit.cover,
               ),
             ),
           ),
-          const SizedBox(width: 30),
-          InkWell(
-            onTap: handleManageBooksTap, // Assign the onTap callback
-            child: const Padding(
-              padding: EdgeInsets.all(14.0),
-              child: Text(
-                "Manage Books",
-                style: TextStyle(
-                  fontWeight: FontWeight.w500,
-                  color: Color(0xfff5f5f5),
-                ),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: kDefaultPadding / 4),
+            child: Text(
+              "Title: ${product.title}",
+              style: GoogleFonts.robotoMono(
+                color: Colors.black,
+                fontWeight: FontWeight.w600,
               ),
             ),
           ),
-          const SizedBox(width: 30),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: kDefaultPadding / 4),
+            child: Text(
+              "Author: ${product.author}",
+              style: GoogleFonts.robotoMono(
+                color: Colors.black,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: kDefaultPadding / 4),
+            child: Text(
+              "Availability: ${product.qty}",
+              style: GoogleFonts.robotoMono(
+                color: Colors.black,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+          ),
+          if (product.qty > 0)
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: kDefaultPadding / 4),
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: kPrimaryColor
+                ),
+                onPressed: () {
+                  print("Redirecting to the Request Page");
+                },
+                child: const Text("Request Book"),
+              ),
+            )
+          else
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: kDefaultPadding / 4),
+              child: ElevatedButton(
+                
+                onPressed: null,
+                style: ElevatedButton.styleFrom(
+                  foregroundColor: Colors.white, backgroundColor: Colors.grey, // Change text color when disabled
+                ), // Disabled when product.qty == 0
+                child: const Text("Request Book"),
+              ),
+            )
         ],
       ),
     );

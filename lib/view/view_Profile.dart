@@ -93,6 +93,7 @@ class _ViewProfileState extends State<ViewProfile> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: Text(
           "Your Profile",
           style: GoogleFonts.robotoMono(

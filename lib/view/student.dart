@@ -2,8 +2,10 @@ import 'package:bookmanagementsystem/enums/menu_action.dart';
 import 'package:bookmanagementsystem/services/auth/bloc/auth_bloc.dart';
 import 'package:bookmanagementsystem/services/auth/bloc/auth_event.dart';
 import 'package:bookmanagementsystem/utilities/dialogs/logout_dialog.dart';
+import 'package:bookmanagementsystem/view/admin.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class StudentPanel extends StatefulWidget {
   const StudentPanel({super.key});
@@ -37,39 +39,25 @@ class _StudentPanelState extends State<StudentPanel> {
       appBar: AppBar(
     
         backgroundColor:const Color(0xff4B6CD0),
-        title: const Text(
+        title:  Text(
           'Admin Panel',
-          style: TextStyle(
+          style: GoogleFonts.robotoMono(
             fontSize: 25,
             fontWeight: FontWeight.w500,
-            color: Color(0xfff5f5f5),
+            color: const Color(0xfff5f5f5),
           ),
         ),
         actions: [
-          InkWell(
-            onTap: viewBook, // line no. 22
-            child: const Padding(
-              padding: EdgeInsets.all(14.0),
-              child: Text(
-                "Home",
-                style: TextStyle(
-                  fontWeight: FontWeight.w500,
-                  color: Color(0xfff5f5f5),
-                  fontSize: 20
-                ),
-              ),
-            ),
-          ),
-           const SizedBox(width: 30), 
+        
           InkWell(
             onTap: requestBook, // line 11
-            child: const Padding(
-              padding: EdgeInsets.all(14.0),
+            child:  Padding(
+              padding: const EdgeInsets.all(14.0),
               child: Text(
                 "Book Issue Request",
-                style: TextStyle(
+                style: GoogleFonts.robotoMono(
                   fontWeight: FontWeight.w500,
-                  color: Color(0xfff5f5f5),
+                  color: const Color(0xfff5f5f5),
                    fontSize: 20
                 ),
               ),
@@ -78,13 +66,13 @@ class _StudentPanelState extends State<StudentPanel> {
           const SizedBox(width: 30),
           InkWell(
             onTap: viewProfile, // line 17
-            child: const Padding(
-              padding: EdgeInsets.all(14.0),
+            child:  Padding(
+              padding: const EdgeInsets.all(14.0),
               child: Text(
                 "My Profile",
-                style: TextStyle(
+                style: GoogleFonts.robotoMono(
                   fontWeight: FontWeight.w500,
-                  color: Color(0xfff5f5f5),
+                  color: const Color(0xfff5f5f5),
                    fontSize: 20
                 ),
               ),
@@ -114,10 +102,13 @@ class _StudentPanelState extends State<StudentPanel> {
                 }
               },
               itemBuilder: (context) {
-                return const [
+                return  [
                   PopupMenuItem(
                     value: MenuAction.logout,
-                    child: Text("Logout"),
+                    child: Text("Log Out", style: GoogleFonts.robotoMono(
+                      fontSize: 15,
+                      fontWeight: FontWeight.w600
+                    ),),
                   )
                 ];
               },
@@ -126,6 +117,8 @@ class _StudentPanelState extends State<StudentPanel> {
           ],
           
         ),
+
+        body:const  StudentPanelBody(),
 
     );
   }

@@ -13,12 +13,47 @@ import 'package:bookmanagementsystem/view/verify_email.dart';
 import 'package:bookmanagementsystem/view/view_Profile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:lottie/lottie.dart';
 
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
+class Product {
+  String imageUrl, title, author;
+  int id;
+  Product({
+    required this.author,
+    required this.id,
+    required this.imageUrl,
+    required this.title,
+  });
+}
+List<Product> product = [
+  Product(
+    id : 1,
+   title: "Can't Hurt Me",
+          author: "David Goggins",
+          imageUrl:
+              "https://m.media-amazon.com/images/I/71dA6xPmp3L._AC_UF1000,1000_QL80_.jpg"
+  ),
+  Product(
+    id : 2,
+      title: "Can't Hurt Me",
+          author: "David Goggins",
+          imageUrl:
+              "https://m.media-amazon.com/images/I/71dA6xPmp3L._AC_UF1000,1000_QL80_.jpg"),
+  Product(
+    id: 3,
+     title: "Can't Hurt Me",
+          author: "David Goggins",
+          imageUrl:
+              "https://m.media-amazon.com/images/I/71dA6xPmp3L._AC_UF1000,1000_QL80_.jpg"
+  ),
+
+ 
+];
 UserProfile user = UserProfile(
     name: 'Gaurav Paliwal',
     profilePictureUrl:
@@ -93,12 +128,10 @@ class HomePage extends StatelessWidget {
           return const RegisterView();
         } else {
           return Scaffold(
-            body: CircularProgressIndicator(
-              color: Colors.deepPurpleAccent.shade200,
-            ),
+            body: Center(child: Lottie.asset('assets/animations/loading.json', width: 200, height: 200,),)
           );
         }
-      },
+      }
     );
   }
 }
