@@ -1,6 +1,8 @@
 import 'package:bookmanagementsystem/constants/constants.dart';
+import 'package:bookmanagementsystem/view/request_page.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+
 class Product {
   String imageUrl, title, author;
   int id , qty;
@@ -105,6 +107,8 @@ class ItemCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    DateTime selectedIssueDate = DateTime.now(); // Initialize with the current date/time
+
     return Padding(
       padding: const EdgeInsets.all(kDefaultPadding),
       child: Column(
@@ -156,25 +160,45 @@ class ItemCard extends StatelessWidget {
           if (product.qty > 0)
             Padding(
               padding: const EdgeInsets.symmetric(vertical: kDefaultPadding / 4),
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: kPrimaryColor
-                ),
-                onPressed: () {
-                  print("Redirecting to the Request Page");
-                },
-                child: const Text("Request Book"),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: kPrimaryColor,
+                    ),
+                    onPressed: (){
+                      print("Redirecting ...");
+                    },
+                    child: Text(
+                      "Select Issue Date",
+                      style: GoogleFonts.robotoMono(fontSize: 16),
+                    ),
+                  ),
+                  Text(
+                    "Selected Issue Date: ${selectedIssueDate.toLocal()}".split(' ')[0],
+                    style: GoogleFonts.robotoMono(fontSize: 16),
+                  ),
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: kPrimaryColor,
+                    ),
+                    onPressed: () {
+                      print("Redirecting... ");
+                    },
+                    child: const Text("Request Book"),
+                  ),
+                ],
               ),
             )
           else
             Padding(
               padding: const EdgeInsets.symmetric(vertical: kDefaultPadding / 4),
               child: ElevatedButton(
-                
                 onPressed: null,
                 style: ElevatedButton.styleFrom(
-                  foregroundColor: Colors.white, backgroundColor: Colors.grey, // Change text color when disabled
-                ), // Disabled when product.qty == 0
+                  foregroundColor: Colors.white, backgroundColor: Colors.grey,
+                ),
                 child: const Text("Request Book"),
               ),
             )

@@ -2,7 +2,8 @@ import 'package:bookmanagementsystem/enums/menu_action.dart';
 import 'package:bookmanagementsystem/services/auth/bloc/auth_bloc.dart';
 import 'package:bookmanagementsystem/services/auth/bloc/auth_event.dart';
 import 'package:bookmanagementsystem/utilities/dialogs/logout_dialog.dart';
-import 'package:bookmanagementsystem/view/admin.dart';
+import 'package:bookmanagementsystem/view/student_body.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -117,9 +118,7 @@ class _StudentPanelState extends State<StudentPanel> {
           ],
           
         ),
-
-        body:const  StudentPanelBody(),
-
+        body: StudentPanelBody(),
     );
   }
 }
