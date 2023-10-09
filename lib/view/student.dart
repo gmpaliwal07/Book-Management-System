@@ -41,7 +41,7 @@ class _StudentPanelState extends State<StudentPanel> {
     
         backgroundColor:const Color(0xff4B6CD0),
         title:  Text(
-          'Admin Panel',
+          'Student Panel',
           style: GoogleFonts.robotoMono(
             fontSize: 25,
             fontWeight: FontWeight.w500,
@@ -49,38 +49,6 @@ class _StudentPanelState extends State<StudentPanel> {
           ),
         ),
         actions: [
-        
-          InkWell(
-            onTap: requestBook, // line 11
-            child:  Padding(
-              padding: const EdgeInsets.all(14.0),
-              child: Text(
-                "Book Issue Request",
-                style: GoogleFonts.robotoMono(
-                  fontWeight: FontWeight.w500,
-                  color: const Color(0xfff5f5f5),
-                   fontSize: 20
-                ),
-              ),
-            ),
-          ),
-          const SizedBox(width: 30),
-          InkWell(
-            onTap: viewProfile, // line 17
-            child:  Padding(
-              padding: const EdgeInsets.all(14.0),
-              child: Text(
-                "My Profile",
-                style: GoogleFonts.robotoMono(
-                  fontWeight: FontWeight.w500,
-                  color: const Color(0xfff5f5f5),
-                   fontSize: 20
-                ),
-              ),
-            ),
-          ),
-          const SizedBox(width: 30),
-
            PopupMenuButton<MenuAction>(
               shadowColor: const Color.fromARGB(255, 149, 179, 244),
               shape: const RoundedRectangleBorder(
@@ -118,7 +86,7 @@ class _StudentPanelState extends State<StudentPanel> {
           ],
           
         ),
-        body: StudentPanelBody(),
+        body: const StudentPanelBody(),
     );
   }
 }

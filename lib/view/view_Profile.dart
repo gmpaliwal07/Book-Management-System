@@ -167,7 +167,7 @@ class _ViewProfileState extends State<ViewProfile> {
                                   context.read<AuthBloc>().add(const AuthEventLogOut());
                                       
                                 },
-                                child: Text('Log Out',
+                                child: Text('Edit Profile',
                                     style: GoogleFonts.robotoMono(
                                         fontSize: 20,
                                         color: Colors.white,

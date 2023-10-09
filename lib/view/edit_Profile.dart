@@ -12,7 +12,7 @@ class UserProfile {
     required this.profilePictureUrl,
     required this.bio,
     required this.email,
-    required this.section,
+    required this.section, required int enrollment, required List<dynamic> showBook,
   });
 }
 
